@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-C<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>媒体评价 - 赵睿篮球博客</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <!-- 保留原有CSS引入（如果有额外样式文件可添加） -->
+    <link rel="stylesheet" href="./css/style.css"> <!-- 假设你的CSS文件路径 -->
+    <style>
+        .section {
+            scroll-margin-top: 80px;
+        }
+        .banner-img {
+            transition: transform 0.5s ease;
+        }
+        .banner-item:hover .banner-img {
+            transform: scale(1.05);
+        }
+        .nav-link.active, .mobile-link.active {
+            color: #dc2626;
+            font-weight: 600;
+            border-bottom: 2px solid #dc2626;
+        }
+        .filter-btn.active {
+            background-color: #dc2626 !important;
+            color: white !important;
+        }
+        .banner-container .banner-item {
+            height: 500px;
+        }
+        .banner-container .banner-item img {
+            height: 100% !important;
+        }
+        /* 页面标识样式 */
+        .page-marker {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 40;
+        }
+    </style>
+</head>
+<body>
+  
+
+     <!-- 顶部导航栏 -->
+    <header class="blog-header sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="header-content flex justify-between items-center py-4">
+                <a href="index.html" class="blog-title text-2xl font-bold text-red-600">赵睿篮球博客</a>
+                <!-- PC端导航 -->
+                <nav class="nav-menu hidden md:flex space-x-6">
+                    <a href="index.html" class="nav-link py-2 transition-colors">首页</a>
+                    <a href="profile.html" class="nav-link py-2 transition-colors">球员简介</a>
+                    <a href="career.html" class="nav-link py-2 transition-colors">赛事历程</a>
+                    <a href="honors.html" class="nav-link py-2 transition-colors">荣誉成就</a>
+                    <a href="gallery.html" class="nav-link py-2 transition-colors">精彩瞬间</a>
+                    <a href="media.html" class="nav-link active py-2 transition-colors">媒体评价</a>
+                    <a href="about.html" class="nav-link py-2 transition-colors">关于博主</a>
+                </nav>
+                <!-- 搜索栏 -->
+                <div class="relative ml-4 flex-1 max-w-xs">
+                    <input type="text" id="pcSearch" placeholder="搜索内容..."
+                        class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm">
+                    <button type="button" id="pcSearchBtn" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-red-600">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+                <!-- 登录按钮 -->
+                <a href="login.html" class="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition-colors ml-4">
+                    登录
+                </a>
+                <!-- 移动端菜单按钮 -->
+                <button class="menu-btn md:hidden text-red-600 ml-4" id="menuBtn" aria-label="打开菜单">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+            <!-- 移动端导航菜单 -->
+            <div class="mobile-menu hidden md:hidden bg-white border-t border-gray-100" id="mobileMenu">
+                <a href="index.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">首页</a>
+                <a href="profile.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">球员简介</a>
+                <a href="career.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">赛事历程</a>
+                <a href="honors.html" class="mobile-link active block py-3 px-4 hover:bg-gray-50">荣誉成就</a>
+                <a href="gallery.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">精彩瞬间</a>
+                <a href="media.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">媒体评价</a>
+                <a href="about.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">关于博主</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 媒体评价区域（原代码完整保留） -->
+    <section id="media" class="section media-section py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-2xl font-bold text-center mb-10 text-gray-800">媒体评价</h2>
+            
+            <div class="media-grid grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 教练评价 -->
+                <div class="media-card bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
+                    <div class="media-header flex items-center mb-4">
+                        <div class="media-avatar w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="./images/15.jpg" alt="杜锋教练" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h3 class="media-name font-semibold text-gray-800 text-lg">杜锋（广东宏远主教练）</h3>
+                            <p class="media-role text-sm text-gray-500">中国男篮前主教练</p>
+                        </div>
+                    </div>
+                    <div class="media-content">
+                        <blockquote class="text-gray-700 italic border-l-4 border-red-300 pl-4 py-2">
+                            "赵睿是我执教过最具竞争力的球员之一。他的斗志、韧性和关键时刻的担当，是年轻球员学习的榜样。他不仅能自己得分，还能带动队友，防守端的积极性更是球队的宝贵财富。"
+                        </blockquote>
+                        <p class="media-date text-right text-sm text-gray-500 mt-3">—— 2023年CBA常规赛赛后采访</p>
+                    </div>
+                </div>
+
+                <!-- 媒体评价 -->
+                <div class="media-card bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
+                    <div class="media-header flex items-center mb-4">
+                        <div class="media-avatar w-12 h-12 rounded-full overflow-hidden mr-4 bg-red-100 flex items-center justify-center">
+                            <i class="fa fa-newspaper-o text-red-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="media-name font-semibold text-gray-800 text-lg">篮球先锋报</h3>
+                            <p class="media-role text-sm text-gray-500">专业篮球媒体</p>
+                        </div>
+                    </div>
+                    <div class="media-content">
+                        <blockquote class="text-gray-700 italic border-l-4 border-red-300 pl-4 py-2">
+                            "赵睿用多年的努力从一名新秀成长为联盟顶级后卫，他的进步有目共睹。作为‘铁血后卫’，他在场上从不畏惧对抗，关键时刻敢于承担责任，是广东宏远王朝和中国男篮不可或缺的核心力量。"
+                        </blockquote>
+                        <p class="media-date text-right text-sm text-gray-500 mt-3">—— 2024年全明星赛专题报道</p>
+                    </div>
+                </div>
+
+                <!-- 队友评价 -->
+                <div class="media-card bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
+                    <div class="media-header flex items-center mb-4">
+                        <div class="media-avatar w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="./images/16.jpg" alt="易建联" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h3 class="media-name font-semibold text-gray-800 text-lg">易建联（前广东宏远队友）</h3>
+                            <p class="media-role text-sm text-gray-500">中国男篮传奇球星</p>
+                        </div>
+                    </div>
+                    <div class="media-content">
+                        <blockquote class="text-gray-700 italic border-l-4 border-red-300 pl-4 py-2">
+                            "赵睿的到来给球队带来了很大的活力。他在场上的激情和拼劲能够感染每一个队友，防守端的强度和进攻端的突破能力都非常出色。看到他一步步成长为球队核心和国家队队长，我为他感到骄傲。"
+                        </blockquote>
+                        <p class="media-date text-right text-sm text-gray-500 mt-3">—— 2021年CBA夺冠后专访</p>
+                    </div>
+                </div>
+
+                <!-- 国际评价 -->
+                <div class="media-card bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
+                    <div class="media-header flex items-center mb-4">
+                        <div class="media-avatar w-12 h-12 rounded-full overflow-hidden mr-4 bg-blue-100 flex items-center justify-center">
+                            <i class="fa fa-globe text-blue-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="media-name font-semibold text-gray-800 text-lg">FIBA国际篮联</h3>
+                            <p class="media-role text-sm text-gray-500">国际篮球官方组织</p>
+                        </div>
+                    </div>
+                    <div class="media-content">
+                        <blockquote class="text-gray-700 italic border-l-4 border-red-300 pl-4 py-2">
+                            "赵睿是中国男篮近年来最具进步的球员之一。他拥有出色的身体素质和强烈的竞争意识，在国际赛场上展现出了与世界强队抗衡的实力。作为控球后卫，他的组织能力和得分能力均衡发展，是中国男篮重建的重要基石。"
+                        </blockquote>
+                        <p class="media-date text-right text-sm text-gray-500 mt-3">—— 2023年世界杯预选赛技术报告</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 专家点评 -->
+            <div class="expert-comment bg-white rounded-lg shadow-sm p-8 mt-10">
+                <h3 class="section-subtitle text-xl font-semibold mb-6 text-gray-800 flex items-center">
+                    <i class="fa fa-comments text-red-600 mr-2"></i>篮球专家综合点评
+                </h3>
+                <div class="expert-content text-gray-700 leading-relaxed">
+                    <p class="mb-4">赵睿的篮球生涯充满了励志色彩，从黑龙江省体校的少年到CBA三连冠核心，再到中国男篮队长，他用实力证明了自己的价值。作为一名后卫球员，赵睿的身高和体重在同位置球员中具备明显优势，这让他在攻防两端都能占据主动。</p>
+                    <p class="mb-4">技术层面，赵睿的突破能力尤为突出，他善于利用身体对抗创造得分机会，同时具备一定的外线投射能力和组织串联能力。防守端，他的积极性和预判能力让他成为球队的防守尖兵，多次在关键比赛中完成抢断和封盖。</p>
+                    <p>精神层面，赵睿的"铁血"风格深受球迷喜爱。他在场上从不畏惧困难，越是关键比赛越能发挥出高水平，这种大心脏特质让他成为球队在关键时刻可以信赖的球员。随着经验的积累，赵睿在场上的决策更加成熟，已经成长为一名能够掌控比赛节奏的核心后卫，未来有望带领中国男篮在国际赛场上再创佳绩。</p>
+                </div>
+                <div class="expert-footer flex justify-end mt-6">
+                    <p class="expert-name text-gray-800 font-semibold">张卫平 - 著名篮球评论员</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 图片预览弹窗（保留原有功能） -->
+    <div class="gallery-modal fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center" id="galleryModal">
+        <button class="modal-close absolute top-6 right-6 text-white text-3xl cursor-pointer hover:text-red-400 transition-colors" id="modalClose" aria-label="关闭预览">
+            <i class="fa fa-times"></i>
+        </button>
+        <button class="modal-prev absolute left-6 text-white text-3xl cursor-pointer hover:text-red-400 transition-colors" id="modalPrev" aria-label="上一张">
+            <i class="fa fa-chevron-left"></i>
+        </button>
+        <div class="modal-content">
+            <img src="" alt="大图预览" class="modal-img max-w-[80%] max-h-[80vh] rounded-lg">
+            <p class="modal-desc text-white text-center mt-4 text-lg" id="modalDesc"></p>
+        </div>
+        <button class="modal-next absolute right-6 text-white text-3xl cursor-pointer hover:text-red-400 transition-colors" id="modalNext" aria-label="下一张">
+            <i class="fa fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- 回到顶部按钮（保留原有功能） -->
+    <button class="back-to-top fixed bottom-6 right-6 bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md hidden hover:bg-red-700 transition-colors" id="backToTop" aria-label="回到顶部">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+
+    <!-- 引入原有JS文件（确保功能不变） -->
+    <script src="./js/main.js"></script>
+    <footer class="bg-gray-700 text-white py-4">
+    <div class="container mx-auto px-4 text-center">
+        <p>© 2025 赵睿篮球博客 | 学号：25216950510 | 姓名：黄俪</p>
+    </div>
+</footer>
+</body>
+</html>

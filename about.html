@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于博主 - 赵睿篮球博客</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <!-- 保留原有CSS引入（如果有额外样式文件可添加） -->
+    <link rel="stylesheet" href="./css/style.css"> 
+    <style>
+        .section {
+            scroll-margin-top: 80px;
+        }
+        .banner-img {
+            transition: transform 0.5s ease;
+        }
+        .banner-item:hover .banner-img {
+            transform: scale(1.05);
+        }
+        .nav-link.active, .mobile-link.active {
+            color: #dc2626;
+            font-weight: 600;
+            border-bottom: 2px solid #dc2626;
+        }
+        .filter-btn.active {
+            background-color: #dc2626 !important;
+            color: white !important;
+        }
+        .banner-container .banner-item {
+            height: 500px;
+        }
+        .banner-container .banner-item img {
+            height: 100% !important;
+        }
+        /* 页面标识样式 */
+        .page-marker {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 40;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航栏 -->
+    <header class="blog-header sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="header-content flex justify-between items-center py-4">
+                <a href="index.html" class="blog-title text-2xl font-bold text-red-600">赵睿篮球博客</a>
+                <!-- PC端导航 -->
+                <nav class="nav-menu hidden md:flex space-x-6">
+                    <a href="index.html" class="nav-link py-2 transition-colors">首页</a>
+                    <a href="profile.html" class="nav-link py-2 transition-colors">球员简介</a>
+                    <a href="career.html" class="nav-link py-2 transition-colors">赛事历程</a>
+                    <a href="honors.html" class="nav-link  py-2 transition-colors">荣誉成就</a>
+                    <a href="gallery.html" class="nav-link py-2 transition-colors">精彩瞬间</a>
+                    <a href="media.html" class="nav-link py-2 transition-colors">媒体评价</a>
+                    <a href="about.html" class="nav-link active py-2 transition-colors">关于博主</a>
+                </nav>
+                <!-- 搜索栏 -->
+                <div class="relative ml-4 flex-1 max-w-xs">
+                    <input type="text" id="pcSearch" placeholder="搜索内容..."
+                        class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm">
+                    <button type="button" id="pcSearchBtn" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-red-600">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+                <!-- 登录按钮 -->
+                <a href="login.html" class="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition-colors ml-4">
+                    登录
+                </a>
+                <!-- 移动端菜单按钮 -->
+                <button class="menu-btn md:hidden text-red-600 ml-4" id="menuBtn" aria-label="打开菜单">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+            <!-- 移动端导航菜单 -->
+            <div class="mobile-menu hidden md:hidden bg-white border-t border-gray-100" id="mobileMenu">
+                <a href="index.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">首页</a>
+                <a href="profile.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">球员简介</a>
+                <a href="career.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">赛事历程</a>
+                <a href="honors.html" class="mobile-link active block py-3 px-4 hover:bg-gray-50">荣誉成就</a>
+                <a href="gallery.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">精彩瞬间</a>
+                <a href="media.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">媒体评价</a>
+                <a href="about.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">关于博主</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 关于博主区域（原代码完整保留） -->
+    <section id="about" class="section about-section py-12 bg-gray-800 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-2xl font-bold text-center mb-10">关于博主</h2>
+            
+            <div class="about-card bg-gray-700 rounded-lg shadow-sm p-8 max-w-3xl mx-auto">
+                <div class="about-header text-center mb-6">
+                    <h3 class="about-title text-xl font-semibold mb-2">黄俪</h3>
+                    <p class="about-subtitle text-gray-300">学号：25216950510 | 《Web编程技术》大作业</p>
+                </div>
+                <div class="about-content text-gray-200">
+                    <p class="mb-4">大家好！我是黄俪，一名热爱篮球的大学生，也是赵睿的球迷。创建这个博客的初衷，是为了记录赵睿的篮球生涯，分享他在赛场上的热血瞬间和成长故事。</p>
+                    <p class="mb-4">赵睿作为中国男篮的核心后卫，他的顽强拼搏、永不言弃的精神一直激励着我。通过制作这个博客，我不仅梳理了赵睿的赛事历程和荣誉成就，也巩固了Web编程技术的学习成果，包括HTML5语义化标签、CSS3响应式布局、JavaScript交互逻辑等。</p>
+                    <p>本博客为《Web编程技术》课程大作业，所有内容均来自公开资料（CBA官网、体育新闻等），图片仅用于学习展示。感谢您的访问！</p>
+                </div>
+                <div class="about-footer text-center mt-8">
+                    <p class="copyright text-gray-400">© 2025 赵睿篮球博客 | 学号：25216950510 | 姓名：黄俪</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 图片预览弹窗（保留原有功能） -->
+    <div class="gallery-modal fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center" id="galleryModal">
+        <button class="modal-close absolute top-6 right-6 text-white text-3xl cursor-pointer hover:text-red-400 transition-colors" id="modalClose" aria-label="关闭预览">
+            <i class="fa fa-times"></i>
+        </button>
+        <button class="modal-prev absolute left-6 text-white text-3xl cursor-pointer hover:text-red-400 transition-colors" id="modalPrev" aria-label="上一张">
+            <i class="fa fa-chevron-left"></i>
+        </button>
+        <div class="modal-content">
+            <img src="" alt="大图预览" class="modal-img max-w-[80%] max-h-[80vh] rounded-lg">
+            <p class="modal-desc text-white text-center mt-4 text-lg" id="modalDesc"></p>
+        </div>
+        <button class="modal-next absolute right-6 text-white text-3xl cursor-pointer hover:text-red-400 transition-colors" id="modalNext" aria-label="下一张">
+            <i class="fa fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- 回到顶部按钮（保留原有功能） -->
+    <button class="back-to-top fixed bottom-6 right-6 bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md hidden hover:bg-red-700 transition-colors" id="backToTop" aria-label="回到顶部">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+
+    <!-- 引入原有JS文件（确保功能不变） -->
+    <script src="./js/main.js"></script>
+</body>
+</html>

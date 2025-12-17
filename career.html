@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赛事历程 - 赵睿篮球博客</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <style>
+        .section {
+            scroll-margin-top: 80px;
+        }
+        .banner-img {
+            transition: transform 0.5s ease;
+        }
+        .banner-item:hover .banner-img {
+            transform: scale(1.05);
+        }
+        .nav-link.active, .mobile-link.active {
+            color: #dc2626;
+            font-weight: 600;
+            border-bottom: 2px solid #dc2626;
+        }
+        .filter-btn.active {
+            background-color: #dc2626 !important;
+            color: white !important;
+        }
+        .banner-container .banner-item {
+            height: 500px;
+        }
+        .banner-container .banner-item img {
+            height: 100% !important;
+        }
+        /* 页面标识样式 */
+        .page-marker {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 40;
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- 顶部导航栏 -->
+    <header class="blog-header sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="header-content flex justify-between items-center py-4">
+                <a href="index.html" class="blog-title text-2xl font-bold text-red-600">赵睿篮球博客</a>
+                <!-- PC端导航 -->
+                <nav class="nav-menu hidden md:flex space-x-6">
+                    <a href="index.html" class="nav-link py-2 transition-colors">首页</a>
+                    <a href="profile.html" class="nav-link py-2 transition-colors">球员简介</a>
+                    <a href="career.html" class="nav-link active py-2 transition-colors">赛事历程</a>
+                    <a href="honors.html" class="nav-link py-2 transition-colors">荣誉成就</a>
+                    <a href="gallery.html" class="nav-link py-2 transition-colors">精彩瞬间</a>
+                    <a href="media.html" class="nav-link py-2 transition-colors">媒体评价</a>
+                    <a href="about.html" class="nav-link py-2 transition-colors">关于博主</a>
+                </nav>
+                <!-- 搜索栏 -->
+                <div class="relative ml-4 flex-1 max-w-xs">
+                    <input type="text" id="pcSearch" placeholder="搜索内容..."
+                        class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm">
+                    <button type="button" id="pcSearchBtn" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-red-600">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+                <!-- 登录按钮 -->
+                <a href="login.html" class="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition-colors ml-4">
+                    登录
+                </a>
+                <!-- 移动端菜单按钮 -->
+                <button class="menu-btn md:hidden text-red-600 ml-4" id="menuBtn" aria-label="打开菜单">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+            <!-- 移动端导航菜单 -->
+            <div class="mobile-menu hidden md:hidden bg-white border-t border-gray-100" id="mobileMenu">
+                <a href="index.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">首页</a>
+                <a href="profile.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">球员简介</a>
+                <a href="career.html" class="mobile-link active block py-3 px-4 hover:bg-gray-50">赛事历程</a>
+                <a href="honors.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">荣誉成就</a>
+                <a href="gallery.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">精彩瞬间</a>
+                <a href="media.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">媒体评价</a>
+                <a href="about.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">关于博主</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 赛事历程区域 -->
+    <section class="section career-section py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-2xl font-bold text-center mb-10 text-gray-800">赛事历程</h2>
+            
+            <div class="career-card bg-white rounded-lg shadow-sm p-6 mb-10">
+                <h3 class="section-subtitle text-xl font-semibold mb-6 text-gray-800">CBA联赛关键节点</h3>
+                <div class="career-timeline">
+                    <div class="career-item flex flex-col md:flex-row mb-8">
+                        <div class="career-date w-full md:w-32 text-center md:text-left font-semibold text-red-600 mb-2 md:mb-0">2016-17赛季</div>
+                        <div class="career-content flex-1 md:pl-6 border-l-2 border-red-100">
+                            <h4 class="career-title font-semibold text-gray-800">CBA首秀赛季</h4>
+                            <p class="career-desc text-gray-600 mt-2">代表广东宏远完成CBA首秀，常规赛出战38场，场均7.5分2.7篮板1.9助攻，帮助球队打进季后赛四强，入选CBA全明星星锐赛。</p>
+                        </div>
+                    </div>
+                    <div class="career-item flex flex-col md:flex-row mb-8">
+                        <div class="career-date w-full md:w-32 text-center md:text-left font-semibold text-red-600 mb-2 md:mb-0">2018-19赛季</div>
+                        <div class="career-content flex-1 md:pl-6 border-l-2 border-red-100">
+                            <h4 class="career-title font-semibold text-gray-800">首次夺冠+主力蜕变</h4>
+                            <p class="career-desc text-gray-600 mt-2">场均贡献11.1分2.8篮板3.3助攻1.2抢断，成为球队主力后卫，总决赛中多次贡献关键得分，助力广东宏远夺得队史第9座CBA总冠军。</p>
+                        </div>
+                    </div>
+                    <div class="career-item flex flex-col md:flex-row mb-8">
+                        <div class="career-date w-full md:w-32 text-center md:text-left font-semibold text-red-600 mb-2 md:mb-0">2019-21赛季</div>
+                        <div class="career-content flex-1 md:pl-6 border-l-2 border-red-100">
+                            <h4 class="career-title font-semibold text-gray-800">三连冠核心</h4>
+                            <p class="career-desc text-gray-600 mt-2">连续两个赛季场均得分上双，2020-21赛季场均13.8分4.8助攻3.5篮板，成为广东宏远“三连冠”王朝的核心成员，防守端多次限制对方核心后卫。</p>
+                        </div>
+                    </div>
+                    <div class="career-item flex flex-col md:flex-row">
+                        <div class="career-date w-full md:w-32 text-center md:text-left font-semibold text-red-600 mb-2 md:mb-0">2022-至今</div>
+                        <div class="career-content flex-1 md:pl-6 border-l-2 border-red-100">
+                            <h4 class="career-title font-semibold text-gray-800">顶薪续约+数据飙升</h4>
+                            <p class="career-desc text-gray-600 mt-2">2023年与广东宏远顶薪续约，2023-24赛季场均18.5分5.2助攻；2024年转会新疆男篮，2024-25赛季场均19.2分6.1助攻；2025年加盟北京首钢，成为联盟薪资TOP5后卫，生涯累计助攻突破2000次。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 国家队赛事历程 -->
+            <div class="career-card bg-white rounded-lg shadow-sm p-6">
+                <h3 class="section-subtitle text-xl font-semibold mb-6 text-gray-800">国家队关键赛事</h3>
+                <div class="national-grid grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="national-item p-4 border border-gray-100 rounded-lg hover:shadow-sm transition-shadow">
+                        <div class="national-header flex items-center mb-3">
+                            <img src="./images/夺冠.jpg" alt="亚运会夺冠" class="national-img w-16 h-16 rounded object-cover mr-4">
+                            <div>
+                                <h4 class="national-title font-semibold text-gray-800">2018年雅加达亚运会</h4>
+                                <p class="national-tag text-sm text-red-600">冠军</p>
+                            </div>
+                        </div>
+                        <p class="national-desc text-gray-600">作为主力后卫出战，场均贡献13.6分4.8篮板2.6助攻，在决赛中对阵伊朗队拿下16分6篮板，帮助中国男篮时隔8年重夺亚运会冠军。</p>
+                    </div>
+                    <div class="national-item p-4 border border-gray-100 rounded-lg hover:shadow-sm transition-shadow">
+                        <div class="national-header flex items-center mb-3">
+                            <img src="./images/20.jpg" alt="世界杯" class="national-img w-16 h-16 rounded object-cover mr-4">
+                            <div>
+                                <h4 class="national-title font-semibold text-gray-800">2019年男篮世界杯</h4>
+                                <p class="national-tag text-sm text-gray-500">小组赛</p>
+                            </div>
+                        </div>
+                        <p class="national-desc text-gray-600">代表中国男篮出战，场均拿下6.8分1.6篮板1.4助攻，在对阵波兰队的关键比赛中贡献10分3助攻，虽未能小组出线，但展现出顽强的比赛态度。</p>
+                    </div>
+                    <div class="national-item p-4 border border-gray-100 rounded-lg hover:shadow-sm transition-shadow md:col-span-2">
+                        <div class="national-header flex items-center mb-3">
+                            <img src="./images/28.jpg" alt="世预赛" class="national-img w-16 h-16 rounded object-cover mr-4">
+                            <div>
+                                <h4 class="national-title font-semibold text-gray-800">2025年晋级亚洲杯决赛</h4>
+                                <p class="national-tag text-sm text-blue-600">晋级决赛</p>
+                            </div>
+                        </div>
+                        <p class="national-desc text-gray-600">场均贡献13.5分4.5助攻3.7篮板。中国男篮时隔十年再进决赛！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 回到顶部按钮 -->
+    <button class="back-to-top fixed bottom-6 right-6 bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md hidden hover:bg-red-700 transition-colors" id="backToTop" aria-label="回到顶部">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+
+    <script src="./js/main.js"></script>
+    <footer class="bg-gray-700 text-white py-4">
+    <div class="container mx-auto px-4 text-center">
+        <p>© 2025 赵睿篮球博客 | 学号：25216950510 | 姓名：黄俪</p>
+    </div>
+</footer>
+</body>
+</html>

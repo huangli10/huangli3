@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精彩瞬间 - 赵睿篮球博客</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <style>
+        .section {
+            scroll-margin-top: 80px;
+        }
+        .banner-img {
+            transition: transform 0.5s ease;
+        }
+        .banner-item:hover .banner-img {
+            transform: scale(1.05);
+        }
+        .nav-link.active, .mobile-link.active {
+            color: #dc2626;
+            font-weight: 600;
+            border-bottom: 2px solid #dc2626;
+        }
+        .filter-btn.active {
+            background-color: #dc2626 !important;
+            color: white !important;
+        }
+        .banner-container .banner-item {
+            height: 500px;
+        }
+        .banner-container .banner-item img {
+            height: 100% !important;
+        }
+        /* 页面标识样式 */
+        .page-marker {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 40;
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- 顶部导航栏 -->
+    <header class="blog-header sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="header-content flex justify-between items-center py-4">
+                <a href="index.html" class="blog-title text-2xl font-bold text-red-600">赵睿篮球博客</a>
+                <!-- PC端导航 -->
+                <nav class="nav-menu hidden md:flex space-x-6">
+                    <a href="index.html" class="nav-link py-2 transition-colors">首页</a>
+                    <a href="profile.html" class="nav-link py-2 transition-colors">球员简介</a>
+                    <a href="career.html" class="nav-link py-2 transition-colors">赛事历程</a>
+                    <a href="honors.html" class="nav-link py-2 transition-colors">荣誉成就</a>
+                    <a href="gallery.html" class="nav-link active py-2 transition-colors">精彩瞬间</a>
+                    <a href="media.html" class="nav-link py-2 transition-colors">媒体评价</a>
+                    <a href="about.html" class="nav-link py-2 transition-colors">关于博主</a>
+                </nav>
+                <!-- 搜索栏 -->
+                <div class="relative ml-4 flex-1 max-w-xs">
+                    <input type="text" id="pcSearch" placeholder="搜索内容..."
+                        class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm">
+                    <button type="button" id="pcSearchBtn" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-red-600">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+                <!-- 登录按钮 -->
+                <a href="login.html" class="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition-colors ml-4">
+                    登录
+                </a>
+                <!-- 移动端菜单按钮 -->
+                <button class="menu-btn md:hidden text-red-600 ml-4" id="menuBtn" aria-label="打开菜单">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+            <!-- 移动端导航菜单 -->
+            <div class="mobile-menu hidden md:hidden bg-white border-t border-gray-100" id="mobileMenu">
+                <a href="index.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">首页</a>
+                <a href="profile.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">球员简介</a>
+                <a href="career.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">赛事历程</a>
+                <a href="honors.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">荣誉成就</a>
+                <a href="gallery.html" class="mobile-link active block py-3 px-4 hover:bg-gray-50">精彩瞬间</a>
+                <a href="media.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">媒体评价</a>
+                <a href="about.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">关于博主</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 精彩瞬间区域 -->
+    <section class="section gallery-section py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-2xl font-bold text-center mb-10 text-gray-800">精彩瞬间</h2>
+            
+            <!-- 图片分类筛选 -->
+            <div class="gallery-filter flex flex-wrap justify-center gap-3 mb-8">
+                <button class="filter-btn active bg-red-600 text-white px-4 py-2 rounded" data-filter="all">全部</button>
+                <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-red-100 transition-colors" data-filter="cba">CBA比赛</button>
+                <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-red-100 transition-colors" data-filter="national">国家队</button>
+                <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-red-100 transition-colors" data-filter="award">领奖时刻</button>
+                <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-red-100 transition-colors" data-filter="life">场外生活</button>
+            </div>
+
+            <!-- 图片画廊网格 -->
+            <div class="gallery-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="galleryGrid">
+                <div class="gallery-item" data-category="cba">
+                    <div class="gallery-img-container overflow-hidden rounded-lg cursor-pointer">
+                        <img src="./images/25.jpg" alt="赵睿CBA突破" class="gallery-img w-full h-64 object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <p class="gallery-desc text-center text-gray-600 mt-2">2025亚洲杯突破上篮</p>
+                </div>
+                <div class="gallery-item" data-category="national">
+                    <div class="gallery-img-container overflow-hidden rounded-lg cursor-pointer">
+                        <img src="./images/32.jpg" alt="赵睿国家队庆祝" class="gallery-img w-full h-64 object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <p class="gallery-desc text-center text-gray-600 mt-2">2023年世预赛庆祝得分</p>
+                </div>
+                <div class="gallery-item" data-category="award">
+                    <div class="gallery-img-container overflow-hidden rounded-lg cursor-pointer">
+                        <img src="./images/13.jpg" alt="赵睿CBA夺冠" class="gallery-img w-full h-64 object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <p class="gallery-desc text-center text-gray-600 mt-2">2021年CBA总决赛领取冠军奖杯</p>
+                </div>
+                <div class="gallery-item" data-category="cba">
+                    <div class="gallery-img-container overflow-hidden rounded-lg cursor-pointer">
+                        <img src="./images/33.jpg" alt="赵睿CBA三分" class="gallery-img w-full h-64 object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <p class="gallery-desc text-center text-gray-600 mt-2">2022-23赛季季后赛关键三分</p>
+                </div>
+                <div class="gallery-item" data-category="national">
+                    <div class="gallery-img-container overflow-hidden rounded-lg cursor-pointer">
+                        <img src="./images/22.jpg" alt="赵睿亚运会夺冠" class="gallery-img w-full h-64 object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <p class="gallery-desc text-center text-gray-600 mt-2">2020全明星最有价值球员</p>
+                </div>
+                <div class="gallery-item" data-category="life">
+                    <div class="gallery-img-container overflow-hidden rounded-lg cursor-pointer">
+                        <img src="./images/44.jpg" alt="赵睿公益活动" class="gallery-img w-full h-64 object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <p class="gallery-desc text-center text-gray-600 mt-2">2021年CBA总决赛赵睿亲吻总冠军奖杯</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 图片预览弹窗 -->
+    <div class="gallery-modal fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center" id="galleryModal">
+        <button class="modal-close absolute top-6 right-6 text-white text-3xl cursor-pointer hover:text-red-400 transition-colors" id="modalClose" aria-label="关闭预览">
+            <i class="fa fa-times"></i>
+        </button>
+        <button class="modal-prev absolute left-6 text-white text-3xl cursor-pointer hover:text-red-400 transition-colors" id="modalPrev" aria-label="上一张">
+            <i class="fa fa-chevron-left"></i>
+        </button>
+        <div class="modal-content">
+            <img src="" alt="大图预览" class="modal-img max-w-[80%] max-h-[80vh] rounded-lg">
+            <p class="modal-desc text-white text-center mt-4 text-lg" id="modalDesc"></p>
+        </div>
+        <button class="modal-next absolute right-6 text-white text-3xl cursor-pointer hover:text-red-400 transition-colors" id="modalNext" aria-label="下一张">
+            <i class="fa fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- 回到顶部按钮 -->
+    <button class="back-to-top fixed bottom-6 right-6 bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md hidden hover:bg-red-700 transition-colors" id="backToTop" aria-label="回到顶部">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+
+    <script src="./js/main.js"></script>
+    <footer class="bg-gray-700 text-white py-4">
+    <div class="container mx-auto px-4 text-center">
+        <p>© 2025 赵睿篮球博客 | 学号：25216950510 | 姓名：黄俪</p>
+    </div>
+</footer>
+</body>
+</html>

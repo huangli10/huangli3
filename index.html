@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赵睿 - 中国男篮队长的“铁血后卫”</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <style>
+        .section {
+            scroll-margin-top: 80px;
+        }
+        .banner-img {
+            transition: transform 0.5s ease;
+        }
+        .banner-item:hover .banner-img {
+            transform: scale(1.05);
+        }
+        .nav-link.active, .mobile-link.active {
+            color: #dc2626;
+            font-weight: 600;
+            border-bottom: 2px solid #dc2626;
+        }
+        .filter-btn.active {
+            background-color: #dc2626 !important;
+            color: white !important;
+        }
+        .banner-container .banner-item {
+            height: 500px;
+        }
+        .banner-container .banner-item img {
+            height: 100% !important;
+        }
+        /* 页面标识样式 */
+        .page-marker {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 40;
+        }
+    </style>
+</head>
+<body>
+    <!-- 页面标识 -->
+    <div class="page-marker">学号：25216950510 | 姓名：黄俪</div>
+
+    <!-- 顶部导航栏（页面跳转） -->
+    <header class="blog-header sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="header-content flex justify-between items-center py-4">
+                <a href="index.html" class="blog-title text-2xl font-bold text-red-600">赵睿篮球博客</a>
+                <!-- PC端导航 -->
+                <nav class="nav-menu hidden md:flex space-x-6">
+                    <a href="index.html" class="nav-link active py-2 transition-colors">首页</a>
+                    <a href="profile.html" class="nav-link py-2 transition-colors">球员简介</a>
+                    <a href="career.html" class="nav-link py-2 transition-colors">赛事历程</a>
+                    <a href="honors.html" class="nav-link py-2 transition-colors">荣誉成就</a>
+                    <a href="gallery.html" class="nav-link py-2 transition-colors">精彩瞬间</a>
+                    <a href="media.html" class="nav-link py-2 transition-colors">媒体评价</a>
+                    <a href="about.html" class="nav-link py-2 transition-colors">关于博主</a>
+                </nav>
+                <!-- 搜索栏 -->
+                <div class="relative ml-4 flex-1 max-w-xs">
+                    <input type="text" id="pcSearch" placeholder="搜索内容..."
+                        class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm">
+                    <button type="button" id="pcSearchBtn" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-red-600">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+                <!-- 登录按钮 -->
+                <a href="login.html" class="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition-colors ml-4">
+                    登录
+                </a>
+                <!-- 移动端菜单按钮 -->
+                <button class="menu-btn md:hidden text-red-600 ml-4" id="menuBtn" aria-label="打开菜单">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+            <!-- 移动端导航菜单 -->
+            <div class="mobile-menu hidden md:hidden bg-white border-t border-gray-100" id="mobileMenu">
+                <a href="index.html" class="mobile-link active block py-3 px-4 hover:bg-gray-50">首页</a>
+                <a href="profile.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">球员简介</a>
+                <a href="career.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">赛事历程</a>
+                <a href="honors.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">荣誉成就</a>
+                <a href="gallery.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">精彩瞬间</a>
+                <a href="media.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">媒体评价</a>
+                <a href="about.html" class="mobile-link block py-3 px-4 hover:bg-gray-50">关于博主</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 首页区域 -->
+    <section class="section home-section">
+        <!-- 轮播图 -->
+        <div class="banner-section relative" id="banner">
+            <div class="banner-container overflow-hidden">
+                <div class="banner-list flex transition-transform duration-500" id="bannerList">
+                    <div class="banner-item w-full flex-shrink-0 relative">
+                        <img src="./images/04.jpg" alt="赵睿比赛特写" class="banner-img w-full h-full object-cover">
+                        <div class="banner-desc absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white px-4">
+                            <h2 class="text-4xl md:text-5xl font-bold mb-2 drop-shadow-lg">赵睿</h2>
+                            <p class="text-xl md:text-2xl drop-shadow-md">中国男篮国家队队长兼后卫 · 前广东宏远核心球员</p>
+                        </div>
+                    </div>
+                    <div class="banner-item w-full flex-shrink-0 relative">
+                        <img src="./images/三.jpg" alt="赵睿领奖瞬间" class="banner-img w-full h-full object-cover">
+                        <div class="banner-desc absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white px-4">
+                            <h2 class="text-4xl md:text-5xl font-bold mb-2 drop-shadow-lg">CBA三连冠得主</h2>
+                            <p class="text-xl md:text-2xl drop-shadow-md">2019-2021赛季广东宏远王朝核心</p>
+                        </div>
+                    </div>
+                    <div class="banner-item w-full flex-shrink-0 relative">
+                        <img src="./images/30.jpg" alt="赵睿国家队战袍" class="banner-img w-full h-full object-cover">
+                        <div class="banner-desc absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white px-4">
+                            <h2 class="text-4xl md:text-5xl font-bold mb-2 drop-shadow-lg">为国出征</h2>
+                            <p class="text-xl md:text-2xl drop-shadow-md">2018亚运会冠军 · 2019世界杯主力</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner-dots absolute bottom-4 left-0 right-0 flex justify-center space-x-2" id="bannerDots">
+                    <span class="banner-dot w-3 h-3 rounded-full bg-white opacity-100 cursor-pointer"></span>
+                    <span class="banner-dot w-3 h-3 rounded-full bg-white opacity-50 cursor-pointer"></span>
+                    <span class="banner-dot w-3 h-3 rounded-full bg-white opacity-50 cursor-pointer"></span>
+                </div>
+                <button class="banner-btn left-btn absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-30 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-opacity-50 transition-all" id="leftBtn" aria-label="上一张">
+                    <i class="fa fa-chevron-left"></i>
+                </button>
+                <button class="banner-btn right-btn absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-30 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-opacity-50 transition-all" id="rightBtn" aria-label="下一张">
+                    <i class="fa fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 核心亮点概览 -->
+        <div class="overview-section py-12">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-2xl font-bold text-center mb-10 text-gray-800">赵睿核心亮点</h2>
+                <div class="overview-grid grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="overview-card bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
+                        <div class="card-icon w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-600 mb-4">
+                            <i class="fa fa-newspaper-o text-xl"></i>
+                        </div>
+                        <h3 class="card-title text-xl font-semibold mb-3 text-gray-800">最新动态</h3>
+                        <ul class="news-list space-y-3">
+                            <li class="news-item flex items-start">
+                                <span class="news-date text-sm text-gray-500 mr-2 min-w-[70px]">2025-12</span>
+                                <p class="news-content text-gray-600">因小腿拉伤退出CBA杯赛事，首钢首战（12.13）待定</p>
+                            </li>
+                            <li class="news-item flex items-start">
+                                <span class="news-date text-sm text-gray-500 mr-2 min-w-[70px]">2025-08</span>
+                                <p class="news-content text-gray-600">买断新疆合同，3年顶薪加盟北京首钢</p>
+                            </li>
+                            <li class="news-item flex items-start">
+                                <span class="news-date text-sm text-gray-500 mr-2 min-w-[70px]">2025-11</span>
+                                <p class="news-content text-gray-600">回归中国男篮世预赛名单，未登场</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="overview-card bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
+                        <div class="card-icon w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-600 mb-4">
+                            <i class="fa fa-bar-chart text-xl"></i>
+                        </div>
+                        <h3 class="card-title text-xl font-semibold mb-3 text-gray-800">生涯核心数据</h3>
+                        <div class="stats-grid grid grid-cols-2 gap-4">
+                            <div class="stat-item bg-gray-50 rounded p-3 text-center">
+                                <p class="stat-value text-2xl font-bold text-red-600">13.1</p>
+                                <p class="stat-name text-sm text-gray-600">CBA场均得分</p>
+                            </div>
+                            <div class="stat-item bg-gray-50 rounded p-3 text-center">
+                                <p class="stat-value text-2xl font-bold text-red-600">5.0</p>
+                                <p class="stat-name text-sm text-gray-600">CBA场均助攻</p>
+                            </div>
+                            <div class="stat-item bg-gray-50 rounded p-3 text-center">
+                                <p class="stat-value text-2xl font-bold text-red-600">3.6</p>
+                                <p class="stat-name text-sm text-gray-600">CBA场均篮板</p>
+                            </div>
+                            <div class="stat-item bg-gray-50 rounded p-3 text-center">
+                                <p class="stat-value text-2xl font-bold text-red-600">1.6</p>
+                                <p class="stat-name text-sm text-gray-600">CBA场均抢断</p>
+                            </div>
+                        </div>
+                        <p class="stats-note text-xs text-gray-500 mt-4 text-center">数据截至2025年12月 | 来源：CBA官方</p>
+                    </div>
+                    <div class="overview-card bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
+                        <div class="card-icon w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-600 mb-4">
+                            <i class="fa fa-quote-left text-xl"></i>
+                        </div>
+                        <h3 class="card-title text-xl font-semibold mb-3 text-gray-800">经典语录</h3>
+                        <div class="quote-container bg-gray-50 rounded-lg p-4 mb-4">
+                            <p class="quote-content text-gray-700 italic">"我从不害怕挑战，越是关键的比赛，我越想证明自己。"</p>
+                            <p class="quote-source text-right text-sm text-gray-500 mt-2">—— 2021年CBA总决赛赛后</p>
+                        </div>
+                        <div class="quote-container bg-gray-50 rounded-lg p-4">
+                            <p class="quote-content text-gray-700 italic">"穿上国家队战袍，为国争光就是我的使命。"</p>
+                            <p class="quote-source text-right text-sm text-gray-500 mt-2">—— 2018年亚运会夺冠后</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 回到顶部按钮 -->
+    <button class="back-to-top fixed bottom-6 right-6 bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md hidden hover:bg-red-700 transition-colors" id="backToTop" aria-label="回到顶部">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+
+    <script src="./js/main.js"></script>
+    <footer class="bg-gray-700 text-white py-4">
+    <div class="container mx-auto px-4 text-center">
+        <p>© 2025 赵睿篮球博客 | 学号：25216950510 | 姓名：黄俪</p>
+    </div>
+</footer>
+</body>
+</html>
